@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lesson)
+        setContentView(R.layout.activity_main)
         et_username = findViewById(R.id.et_username)
         et_password = findViewById(R.id.et_password)
         et_code = findViewById(R.id.et_code)

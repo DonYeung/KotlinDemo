@@ -24,7 +24,7 @@ class LessonPresenter {
     fun fetchData() {
         HttpClient.get(LESSON_PATH, type,object :EntityCallback<ArrayList<Lesson>>{
             override fun onSuccess(entity: ArrayList<Lesson>) {
-                this@LessonPresenter.lesson
+                this@LessonPresenter.lesson = entity
                 activity.runOnUiThread {
                     activity.showResult(lesson)
                 }
