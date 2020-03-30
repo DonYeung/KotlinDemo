@@ -11,6 +11,8 @@ import com.example.app.widget.CodeView
 import com.example.core.utils.CacheUtils
 import com.example.core.utils.Utils
 import com.example.lesson.LessonActivity
+import okhttp3.Request
+import okhttp3.Response
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     val usernameKey = "username"
@@ -54,8 +56,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val code = et_code.text.toString()
 
 
+        //这里user类转为data class 可直接使用copy hascode 等
         val user  = User(username,password,code)
 
+        //这里还是不使用内部函数
         if (verify(user)){
             CacheUtils.save(usernameKey, username)
             CacheUtils.save(passwordKey, password)
@@ -64,12 +68,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
     fun verify(user: User):Boolean{
+
+        /*
         if (user.username!=null && user.username!!.length<4){
             Utils.toast("用户名不合法");
             return false
         }
         if(user.password!=null && user.password!!.length<4){
+            Utils.toast("密码不合法");
+            return false
+        }
+        */
+        if(user.username?.length?:0 <4){
+            Utils.toast("用户名不合法");
+            return false
+        }
+        if(user.password?.length ?:0 <4){
             Utils.toast("密码不合法");
             return false
         }

@@ -9,29 +9,29 @@ import okhttp3.internal.Util
 
 class LessonPresenter {
     private val LESSON_PATH = "lessons"
-   lateinit var activity:LessonActivity
+    lateinit var activity: LessonActivity
 
-    constructor(activity: LessonActivity){
-        this.activity=activity
+    constructor(activity: LessonActivity) {
+        this.activity = activity
     }
 
-    private var lesson = ArrayList<Lesson>()
+    private var lessons = ArrayList<Lesson>()
 
-    private val type = object:TypeToken<ArrayList<Lesson>>(){}.type
+    private val type = object : TypeToken<ArrayList<Lesson>>() {}.type
 
 //    private val type = object : TypeToken<List<Lesson?>?>() {}.type
 
     fun fetchData() {
-        HttpClient.get(LESSON_PATH, type,object :EntityCallback<ArrayList<Lesson>>{
+        HttpClient.get(LESSON_PATH, type, object : EntityCallback<ArrayList<Lesson>> {
             override fun onSuccess(entity: ArrayList<Lesson>) {
-                this@LessonPresenter.lesson = entity
+                this@LessonPresenter.lessons = entity
                 activity.runOnUiThread {
-                    activity.showResult(lesson)
+                    activity.showResult(lessons)
                 }
             }
 
             override fun onFailure(message: String) {
-                activity.runOnUiThread{
+                activity.runOnUiThread {
                     Utils.toast(message)
                 }
             }
@@ -39,17 +39,38 @@ class LessonPresenter {
         })
     }
 
-    fun showPlayback(){
+    fun showPlayback() {
         var playbackLessons = ArrayList<Lesson>()
-        for (lesson in lesson){
+        /*for (lesson in lessons){
             if (lesson.state == Lesson.State.PLAYBACK) {
                 playbackLessons.add(lesson);
             }
         }
+        activity.showResult(playbackLessons)*/
+
+
+
+        /*lessons.forEach() {
+            if (it.state == Lesson.State.PLAYBACK) {
+                playbackLessons.add(it);
+            }
+
+        }
         activity.showResult(playbackLessons)
+        */
+
+        /*
+        val filter = lessons.filter {
+            it.state == Lesson.State.PLAYBACK
+        }*/
+
+
+        activity.showResult(lessons.filter {
+            it.state == Lesson.State.PLAYBACK
+        })
+
+
     }
-
-
 
 
 }

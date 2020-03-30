@@ -6,11 +6,12 @@ import android.content.Context
 class BaseApplication :Application(){
 
     companion object{
+        @get:JvmName("currentApplication")
         lateinit var currentApplication : Context
 
-        fun currentApplication():Context{
+        /*fun currentApplication():Context{
             return currentApplication
-        }
+        }*/
     }
 
     override fun attachBaseContext(base: Context?) {

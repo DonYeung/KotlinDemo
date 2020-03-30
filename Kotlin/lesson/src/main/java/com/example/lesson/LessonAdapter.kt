@@ -20,8 +20,8 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
     /**
      * 静态内部类
      */
-   class LessonViewHolder : BaseViewHolder  {
-        constructor(itemView: View) : super(itemView)
+   class LessonViewHolder constructor(itemView: View) : BaseViewHolder(itemView)  {
+//        constructor(itemView: View) : super(itemView)
 
         companion object{
             fun onCreate(parent: ViewGroup): LessonViewHolder {
@@ -38,9 +38,8 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
             setText(R.id.tv_date, date)
             setText(R.id.tv_content, lesson.content)
 
-            val state = lesson.state
-            setText(R.id.tv_state, state?.name)
-            var colorRes = R.color.playback
+//            val state = lesson.state
+            /*var colorRes = R.color.playback
 
             when (state) {
                 Lesson.State.PLAYBACK -> {
@@ -50,10 +49,32 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
                 Lesson.State.LIVE -> colorRes = R.color.live
                 Lesson.State.WAIT -> colorRes = R.color.wait
             }
+            */
+
+            /*
+            setText(R.id.tv_state, state?.name)
+            val colorRes = when (state){
+                Lesson.State.PLAYBACK -> R.color.playback
+                Lesson.State.LIVE -> R.color.live
+                Lesson.State.WAIT -> R.color.wait
+                else -> R.color.playback
+            }
 
             val backgroundColor = itemView.context.getColor(colorRes)
-            getView<TextView>(R.id.tv_state)?.setBackgroundColor(backgroundColor)
+            getView<TextView>(R.id.tv_state)?.setBackgroundColor(backgroundColor)*/
 
+
+            lesson.state?.let {
+                setText(R.id.tv_state, it.name)
+                val colorRes = when (it){
+                    Lesson.State.PLAYBACK -> R.color.playback
+                    Lesson.State.LIVE -> R.color.live
+                    Lesson.State.WAIT -> R.color.wait
+                }
+
+                val backgroundColor = itemView.context.getColor(colorRes)
+                getView<TextView>(R.id.tv_state)?.setBackgroundColor(backgroundColor)
+            }
 
         }
 
