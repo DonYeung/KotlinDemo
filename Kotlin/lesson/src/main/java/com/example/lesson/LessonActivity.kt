@@ -43,10 +43,10 @@ class LessonActivity : AppCompatActivity(), BaseView<LessonPresenter>, Toolbar.O
             addItemDecoration(DividerItemDecoration(this@LessonActivity, LinearLayout.VERTICAL))
         }
 
-
-        findViewById<SwipeRefreshLayout>(R.id.swipe_refresh_layout).run {
+        refreshLayout = findViewById<SwipeRefreshLayout>(R.id.swipe_refresh_layout).run {
             setOnRefreshListener { presenter.fetchData() }
             isRefreshing = true
+            return@run this
         }
 
 
