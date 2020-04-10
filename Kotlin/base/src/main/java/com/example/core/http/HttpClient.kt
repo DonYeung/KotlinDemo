@@ -29,9 +29,9 @@ object HttpClient : OkHttpClient() {
 
             override fun onResponse(call: Call, response: Response) {
 
-                when (response.code()) {
+                when (response.code) {
                     in 200..299 ->
-                        entityCallback.onSuccess(convert(response.body()!!.string(), type) as T)
+                        entityCallback.onSuccess(convert(response.body!!.string(), type) as T)
                     in 400..499 ->
                         entityCallback.onFailure("客户端错误")
                     in 500..599 ->

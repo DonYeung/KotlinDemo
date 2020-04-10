@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
+import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.app.R
 import com.example.core.utils.Utils
@@ -48,6 +49,10 @@ class CodeView constructor(context: Context, attrs: AttributeSet?) : AppCompatTe
         var random = Random().nextInt(codeList.size)
         val code = codeList[random]
         text = code
+    }
+
+    interface onClickListenerr{
+        fun onclick(view: View)
     }
 
 

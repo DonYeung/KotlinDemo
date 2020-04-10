@@ -5,7 +5,6 @@ import com.example.core.http.HttpClient
 import com.example.core.utils.Utils
 import com.example.lesson.entity.Lesson
 import com.google.gson.reflect.TypeToken
-import okhttp3.internal.Util
 
 class LessonPresenter {
     private val LESSON_PATH = "lessons"
