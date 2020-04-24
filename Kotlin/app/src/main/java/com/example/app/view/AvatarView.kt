@@ -2,10 +2,12 @@ package com.example.app.view
 
 import android.content.Context
 import android.graphics.*
+import android.graphics.Shader.TileMode
 import android.util.AttributeSet
 import android.view.View
 import com.example.app.R
 import com.example.app.utils.px
+
 
 private val IMAGE_WIDTHG = 200f.px
 private val IMAGE_PADDING = 100f.px
@@ -20,8 +22,9 @@ class AvatarView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
             IMAGE_PADDING+ IMAGE_WIDTHG+ OFFSET,IMAGE_PADDING+ IMAGE_WIDTHG+ OFFSET)
     private val ovalRectF2 = RectF(IMAGE_PADDING,IMAGE_PADDING,
             IMAGE_PADDING+ IMAGE_WIDTHG,IMAGE_PADDING+ IMAGE_WIDTHG)
-    init{
+    val bitmap = getAvatar(IMAGE_WIDTHG.toInt())
 
+    init{
     }
     override fun onDraw(canvas: Canvas) {
 //        super.onDraw(canvas)
@@ -34,6 +37,8 @@ class AvatarView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
         canvas.drawBitmap(getAvatar(IMAGE_WIDTHG.toInt()),IMAGE_PADDING,IMAGE_PADDING,paint)
         paint.xfermode = null
         canvas.restoreToCount(count)
+
+
     }
 
     //输出图片的宽高= 原图片的宽高 / inSampleSize * (inTargetDensity / inDensity)

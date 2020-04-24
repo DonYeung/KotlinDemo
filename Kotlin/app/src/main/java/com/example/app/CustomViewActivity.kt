@@ -1,6 +1,7 @@
 package com.example.app
 
 import android.animation.*
+import android.app.Dialog
 import android.graphics.Point
 import android.graphics.PointF
 import android.os.Bundle

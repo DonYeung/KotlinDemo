@@ -1,5 +1,7 @@
 package com.example.app
 
+import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -11,10 +13,12 @@ import com.example.app.widget.CodeView
 import com.example.core.utils.CacheUtils
 import com.example.core.utils.Utils
 import com.example.lesson.LessonActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.*
 import okhttp3.Request
 import okhttp3.Response
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : Activity(), View.OnClickListener {
     val usernameKey = "username"
     val passwordKey = "password"
 
@@ -39,7 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_login.setOnClickListener(this)
         img_code.setOnClickListener(this)
 
-
+//        username.setText()
     }
 
     override fun onClick(v: View?) {
