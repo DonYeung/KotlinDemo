@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="3000"
+        app:motionInterpolator="bounce">
+        <OnClick app:targetId="@+id/motext1" app:clickAction="toggle"/>
+        <!--<OnSwipe app:touchAnchorId="@id/motext1" app:dragDirection="dragDown"
+            />-->
+
+       <!-- <KeyFrameSet>
+            <KeyAttribute android:scaleX="2"
+                android:scaleY="2"
+                android:alpha="0.5">
+            </KeyAttribute>
+            <KeyPosition  app:drawPath="deltaRelative"/>
+        </KeyFrameSet>-->
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/motext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="454dp"
+            android:text="H"
+            android:textSize="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/motext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="E"
+            android:textSize="32dp"
+            app:layout_constraintStart_toEndOf="@+id/motext1"
+            app:layout_constraintTop_toTopOf="@+id/motext1" />
+
+        <Constraint
+            android:id="@+id/motext3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="N"
+            android:textSize="32dp"
+            app:layout_constraintStart_toEndOf="@+id/motext2"
+            app:layout_constraintTop_toTopOf="@+id/motext1" />
+    </ConstraintSet>
+</MotionScene>
