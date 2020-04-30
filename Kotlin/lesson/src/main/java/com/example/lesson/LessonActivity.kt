@@ -13,20 +13,24 @@ import com.example.core.BaseView
 import com.example.lesson.entity.Lesson
 
 class LessonActivity : AppCompatActivity(), BaseView<LessonPresenter>, Toolbar.OnMenuItemClickListener {
-//    private var lessonPresenter = LessonPresenter(this)
+//    private var lessonPresenter = LessonPresenter(this) // 这里由于每次调用的话 可能会调用lessonPresenter(会产生新对象) or  getPresenter() 令人迷惑调用
+
 
    /* override fun getPresenter(): LessonPresenter {
         return lessonPresenter;
     }*/
 
+  /* override val presenter: LessonPresenter
+       get() =  LessonPresenter(this)*/   //如果这样子返回的话还是会调用产生对象
+    //所以使用kotlin 的 特性 委托 by lazy   这样只会在第一次生产对象，之后都是调用presenter
+    override val presenter: LessonPresenter by lazy {
+      LessonPresenter(this)
+    }
+
     private var lessonAdapter = LessonAdapter()
 
     private lateinit var refreshLayout: SwipeRefreshLayout
 
-
-    override val presenter: LessonPresenter by lazy {
-        LessonPresenter(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +69,8 @@ class LessonActivity : AppCompatActivity(), BaseView<LessonPresenter>, Toolbar.O
         presenter.showPlayback()
         return false
     }
+
+
 
 
 }

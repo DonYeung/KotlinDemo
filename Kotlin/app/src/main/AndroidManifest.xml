@@ -1,26 +1,46 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.app">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
 
 
     <application
+        android:name="com.example.core.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:name="com.example.core.BaseApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="com.example.app.CoroutineActivity">
+        <activity android:name="com.example.app.filewritedemo.FileWriteDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".TestActivity" />
+
+        <receiver
+            android:name=".broadcastdemo.MyBroadcastReciver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.shuixin.customAction" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastdemo.MyBroadcastReciver2"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
+                <action android:name="com.shuixin.customAction" />
+            </intent-filter>
+        </receiver>
         <!--        <activity android:name="com.example.app.TestActivity" />-->
     </application>
 </manifest>
