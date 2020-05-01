@@ -36,7 +36,7 @@ class CoroutineActivity :AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val api = retrofit.create(Api::class.java)
-        /*GlobalScope.launch (Dispatchers.Main){retrofit.create
+        /*GlobalScope.launch (Dispatchers.Main){
             val result = api.listRepoKT("octocat")
             text.text = result[0].name
         }*/
