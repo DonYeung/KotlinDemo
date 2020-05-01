@@ -24,7 +24,8 @@ dependencies {
     //androidX
     api 'androidx.appcompat:appcompat:1.1.0'
     api 'androidx.recyclerview:recyclerview:1.0.0'
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+//    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
 
     //kotlin
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
