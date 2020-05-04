@@ -20,8 +20,8 @@ class FruitAdapter(val activity: Activity, val resourceId: Int, data: MutableLis
         val viewHolder :ViewHolder
         if (convertView == null) {
             view = LayoutInflater.from(context).inflate(resourceId,parent,false)
-            val fruitImage = view.findViewById<ImageView>(R.id.fruiv)
-            val fruname = view.findViewById<TextView>(R.id.fruname)
+            val fruitImage = view.findViewById<ImageView>(R.id.fruit_image)
+            val fruname = view.findViewById<TextView>(R.id.fruit_text)
             viewHolder=ViewHolder(fruitImage,fruname)
             view.tag = viewHolder
         }else{

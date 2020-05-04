@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.fruit_item.view.*
 class FruitRecycleAdapter(val fruits: List<Fruit>) : RecyclerView.Adapter<FruitRecycleAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val fruitImage = view.findViewById<ImageView>(R.id.fruiv)
-        val fruitName = view.findViewById<TextView>(R.id.fruname)
+        val fruitImage = view.findViewById<ImageView>(R.id.fruit_image)
+        val fruitName = view.findViewById<TextView>(R.id.fruit_text)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

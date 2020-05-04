@@ -1,6 +1,8 @@
 package com.example.app
 
 import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Resources
 import android.util.DisplayMetrics
@@ -35,4 +37,23 @@ fun cvOf(vararg pairs:Pair<String,Any?>):ContentValues{
 
     }
     return cv
+}
+
+infix fun <T> Collection<T>.has(element:T) = contains(element)
+
+fun main(){
+    val list = listOf("apple","grape","pear","banana","orange")
+//    if (list.contains("apple"))
+//    if (list has "apple")
+}
+
+inline fun <reified T> startActivity(context:Context){
+    val intent = Intent(context,T::class.java)
+    context.startActivity(intent)
+}
+
+inline fun <reified T>startActivity(context: Context,block:Intent.()->Unit){
+    val intent = Intent(context,T::class.java)
+    intent.block()
+    context.startActivity(intent)
 }
