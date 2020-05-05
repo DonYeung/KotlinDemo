@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_customview.*
 class CustomViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_squareview)
+        setContentView(R.layout.activity_twopager)
 
         /* val animator = ObjectAnimator.ofFloat(view,"RADIUS",50f.px,150f.px)
          animator.duration = 2000

@@ -5,8 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Resources
+import android.content.res.TypedArray
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.View
 
 val Float.px
     get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,this, Resources.getSystem().displayMetrics)
@@ -17,6 +21,23 @@ fun SharedPreferences.open(block:(SharedPreferences.Editor.() -> Unit)){
     val editer = edit()
     editer.block()
     editer.apply()
+}
+
+val Float.dp
+    get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,this,Resources.getSystem().displayMetrics)
+
+val Int.dp
+    get() = this.toFloat().dp
+
+
+fun getAvatar(res:Resources,size:Int):Bitmap{
+    val option = BitmapFactory.Options()
+    option.inJustDecodeBounds = true
+    BitmapFactory.decodeResource(res,R.drawable.iv_avatar,option)
+    option.inJustDecodeBounds = false
+    option.inDensity = option.outWidth
+    option.inTargetDensity = size
+    return  BitmapFactory.decodeResource(res,R.drawable.iv_avatar,option)
 }
 
 fun cvOf(vararg pairs:Pair<String,Any?>):ContentValues{
@@ -38,6 +59,8 @@ fun cvOf(vararg pairs:Pair<String,Any?>):ContentValues{
     }
     return cv
 }
+
+
 
 infix fun <T> Collection<T>.has(element:T) = contains(element)
 
