@@ -1,10 +1,18 @@
-package com.example.app.httpurlcondemo
+package com.example.app.httpdemo
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.lifecycleScope
 import com.example.app.R
 import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -15,7 +23,9 @@ class HttpUrlDemo :AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
-        sendHttpUrlConnetion()
+//        sendHttpUrlConnetion()
+//        sendOkhttp()
+        sendHttpWithCoroutine()
 
     }
 
@@ -39,8 +49,35 @@ class HttpUrlDemo :AppCompatActivity() {
 
 
     }
+    private fun sendOkhttp(){
+//        val response = StringBuilder()
+        thread {
+            val client = OkHttpClient()
+            val request = Request.Builder().url("https://www.baidu.com").build()
+            val res = client.newCall(request).execute()
+            showResponse( res.body?.string())
+        }
 
-    private fun showResponse(response: String) {
+    }
+    private fun sendHttpWithCoroutine(){
+        lifecycleScope.launch(Dispatchers.Main) {
+            val respone = sendResquest()
+            text.text = respone
+            Log.i("Don", "sendHttpWithCoroutine: ")
+
+        }
+    }
+    private suspend fun sendResquest():String?=
+         withContext(Dispatchers.IO){
+            val client = OkHttpClient()
+            val request = Request.Builder().url("https://www.baidu.com").build()
+            val respone = client.newCall(request).execute()
+            return@withContext respone.body?.string()
+        }
+
+
+
+    private fun showResponse(response: String?) {
         runOnUiThread {
             Log.i("Don", "sendHttpUrlConnetion: ${response.toString()}")
             text.text = response

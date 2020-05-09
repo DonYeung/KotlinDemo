@@ -3,7 +3,10 @@ package com.example.app.lockdemo;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ReetrantLockDemo {
+/**
+ * 可重入锁--对读和写分别锁，操作性更灵活
+ */
+public class ReentrantLockDemo {
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     private Lock writeLock = lock.writeLock();
     private Lock readLock = lock.readLock();

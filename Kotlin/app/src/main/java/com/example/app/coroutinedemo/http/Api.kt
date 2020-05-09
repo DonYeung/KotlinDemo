@@ -1,7 +1,6 @@
-package com.example.app.http
+package com.example.app.coroutinedemo.http
 
 import com.example.app.Respo
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 

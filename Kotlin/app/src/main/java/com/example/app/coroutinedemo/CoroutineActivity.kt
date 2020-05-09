@@ -1,13 +1,13 @@
-package com.example.app
+package com.example.app.coroutinedemo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.app.http.Api
+import com.example.app.R
+import com.example.app.coroutinedemo.http.Api
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.coroutines.*
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class CoroutineActivity :AppCompatActivity() {
@@ -45,7 +45,6 @@ class CoroutineActivity :AppCompatActivity() {
             val two = async {api.listRepoKT("octocat")}
             val result = one.await()[0].name == two.await()[0].name
             text.text= result.toString()
-
         }
 
 
