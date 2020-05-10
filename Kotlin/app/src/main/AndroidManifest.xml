@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppThemeNoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <service
             android:name=".servicedemo.MyForwardService"
@@ -43,7 +43,8 @@
                 android:resource="@xml/file_paths"/>
         </provider>
         -->
-        <activity android:name=".httpdemo.HttpUrlDemo">
+        <activity android:name=".materialdemo.CollaspingToolBarDemo"
+            android:theme="@style/AppThemeTransparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,6 +59,10 @@
                 <category android:name="com.example.activity.MY_CATEGORY" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".materialdemo.ToolBarDemo"
+            android:label="toolbar"
+            android:theme="@style/AppThemeNoActionBar"/>
     </application>
 
 </manifest>

@@ -11,6 +11,10 @@ import android.graphics.BitmapFactory
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+import java.lang.RuntimeException
+import java.time.Duration
 
 val Float.px
     get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,this, Resources.getSystem().displayMetrics)
@@ -79,4 +83,32 @@ inline fun <reified T>startActivity(context: Context,block:Intent.()->Unit){
     val intent = Intent(context,T::class.java)
     intent.block()
     context.startActivity(intent)
+}
+
+//这里的T类型必须是可比较的 所以必须实现Comparable接口
+fun <T:Comparable<T>> max(vararg nums:T):T{
+    if(nums.isEmpty()) throw RuntimeException("Params can not be empty")
+    var maxnum = nums[0]
+    for (num in nums){
+        if (num>maxnum){
+            maxnum = num
+        }
+    }
+    return maxnum
+}
+fun String.showToast(context: Context,duration: Int = Toast.LENGTH_SHORT){
+    Toast.makeText(context,this,duration).show()
+}
+fun Int.showToast(context: Context,duration: Int = Toast.LENGTH_SHORT){
+    Toast.makeText(context,this.toString(),duration).show()
+}
+
+fun View.showSnackBar(text:String,actionText:String? = null ,duration: Int=Snackbar.LENGTH_SHORT,block:(()->Unit)? = null){
+    val snackbar = Snackbar.make(this,text,duration)
+    if (actionText!=null && block!=null){
+        snackbar.setAction(actionText){
+            block()
+        }
+    }
+    snackbar.show()
 }

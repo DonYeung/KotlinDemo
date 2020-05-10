@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+    <!--checkableBehavior single 表示组中的菜单项只能单选-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav1"
+            android:icon="@drawable/nav1"
+            android:title="call"/>
+        <item
+            android:id="@+id/nav2"
+            android:icon="@drawable/nav2"
+            android:title="nav2"/>
+        <item
+            android:id="@+id/nav3"
+            android:icon="@drawable/nav3"
+            android:title="nav3"/>
+        <item
+            android:id="@+id/nav4"
+            android:icon="@drawable/nav4"
+            android:title="nav4"/>
+
+    </group>
+</menu>

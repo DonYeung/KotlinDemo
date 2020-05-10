@@ -2,9 +2,14 @@ package com.example.app.httpdemo
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.whenCreated
 import com.example.app.R
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +33,6 @@ class HttpUrlDemo :AppCompatActivity() {
         sendHttpWithCoroutine()
 
     }
-
     private fun sendHttpUrlConnetion() {
         val response = StringBuilder()
         thread {
