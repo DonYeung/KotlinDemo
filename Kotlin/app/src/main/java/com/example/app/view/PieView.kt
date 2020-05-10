@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.example.app.utils.px
+import com.example.app.px
 import kotlin.math.cos
 import kotlin.math.sin
 

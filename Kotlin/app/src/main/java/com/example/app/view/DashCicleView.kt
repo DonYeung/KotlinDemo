@@ -6,7 +6,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import com.example.app.utils.px
+import com.example.app.px
 import kotlin.math.cos
 import kotlin.math.sin
 

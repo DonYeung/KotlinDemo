@@ -6,7 +6,7 @@ import android.graphics.Shader.TileMode
 import android.util.AttributeSet
 import android.view.View
 import com.example.app.R
-import com.example.app.utils.px
+import com.example.app.px
 
 
 private val IMAGE_WIDTHG = 200f.px

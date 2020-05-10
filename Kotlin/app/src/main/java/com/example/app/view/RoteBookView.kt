@@ -5,7 +5,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import com.example.app.R
-import com.example.app.utils.px
+import com.example.app.px
 
 private val IMAGE_WIDTH = 200f.px
 private val IMAGE_PADDING = 100F.px

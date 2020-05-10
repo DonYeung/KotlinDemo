@@ -7,8 +7,8 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import com.example.app.dp
 import com.example.app.getAvatar
-import com.example.app.utils.dp
 
 /**
  * 接力型--多点触摸

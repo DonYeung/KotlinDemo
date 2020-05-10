@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
-import com.example.app.utils.px
+import com.example.app.px
 import java.util.*
 
 class ColorTextView(context: Context?, attrs: AttributeSet?) : AppCompatTextView(context, attrs) {

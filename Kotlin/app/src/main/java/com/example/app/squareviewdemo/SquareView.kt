@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.app.R
-import com.example.app.utils.dp
+import com.example.app.dp
 import kotlin.math.min
 
 class SquareView(context: Context?, attrs: AttributeSet?) : AppCompatImageView(context, attrs) {

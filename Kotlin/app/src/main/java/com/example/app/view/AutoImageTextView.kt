@@ -6,7 +6,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
 import com.example.app.R
-import com.example.app.utils.px
+import com.example.app.px
 import com.example.core.utils.dp2px
 
 private val IMAGE_PADDING = 50F.px

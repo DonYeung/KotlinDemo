@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
 import com.example.app.R
-import com.example.app.utils.px
+import com.example.app.px
 
 class MaterialEditText(context: Context, attrs: AttributeSet) : AppCompatEditText(context, attrs) {
 

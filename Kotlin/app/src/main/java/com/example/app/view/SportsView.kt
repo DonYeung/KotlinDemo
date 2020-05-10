@@ -11,7 +11,7 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.content.res.ResourcesCompat
 import com.example.app.R
-import com.example.app.utils.px
+import com.example.app.px
 import android.view.View.TEXT_ALIGNMENT_CENTER as TEXT_ALIGNMENT_CENTER1
 
 private val RAUDIUS =100F.px
