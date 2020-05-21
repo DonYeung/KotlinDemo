@@ -7,6 +7,6 @@ import com.example.app.R
 class MotionLayoutdemo :AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_motionlayout)
+        setContentView(R.layout.game_yindao_animation)
     }
 }
