@@ -12,11 +12,11 @@ class Hencoder implements Plugin<Project>{
             println "Hi ${extension.name}"
         }
 
-        /*def transform = new HencoderTransform()
-        def baseExtension = target.extensions.getByType(BaseExtension)
-        baseExtension.registerTransform(transform)*/
-        def transform = new LifeCycleTransform()
+        def transform = new HencoderTransform()
         def baseExtension = target.extensions.getByType(BaseExtension)
         baseExtension.registerTransform(transform)
+       /* def transform = new LifeCycleTransform()
+        def baseExtension = target.extensions.getByType(BaseExtension)
+        baseExtension.registerTransform(transform)*/
     }
 }
