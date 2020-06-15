@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.content.res.TypedArray
 import android.graphics.Bitmap
@@ -111,4 +112,11 @@ fun View.showSnackBar(text:String,actionText:String? = null ,duration: Int=Snack
         }
     }
     snackbar.show()
+}
+/**
+ * 是否深夜模式(淺色or深色主題)
+ */
+fun isDrakTheme(context: Context):Boolean{
+    val flag = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+    return flag == Configuration.UI_MODE_NIGHT_YES
 }
