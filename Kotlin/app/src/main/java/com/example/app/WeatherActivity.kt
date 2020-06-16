@@ -29,6 +29,7 @@ class WeatherActivity :AppCompatActivity() {
                 val response = api.listHourData()
                 if (response.status.equals("ok")){
                     scrollChartView.setData(response.result.hourly.temperature)
+//                    scrollChartView.setDatas(response.result.hourly.temperature,40,10,0)
                 }
             }
         }

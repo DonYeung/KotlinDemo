@@ -6,9 +6,11 @@ import android.content.res.Resources
 import android.util.TypedValue
 import android.widget.Toast
 import com.example.core.BaseApplication
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun Float.dp2px() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this@dp2px, Utils.displayMetrics)
-
+fun String.toMonthDate() = SimpleDateFormat("MM-dd").format(SimpleDateFormat("MM-dd").parse(this@toMonthDate))
 
 object Utils {
     val displayMetrics = Resources.getSystem().displayMetrics
