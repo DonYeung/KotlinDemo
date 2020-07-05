@@ -4,14 +4,38 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
     defaultConfig {
-        applicationId "com.example.hencoder"
+        applicationId "com.example.hencoder2"
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-    }
 
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a'/*,'armeabi' , 'x86', 'x86_64', 'arm64-v8a'*/
+        }
+    }
+    signingConfigs {
+        release {
+            storeFile file("starbaba.keystore")
+            keyAlias "starbaba"
+            keyPassword "starbaba0727"
+            storePassword "starbaba0727"
+            v2SigningEnabled false
+        }
+        debug {
+            storeFile file("starbaba.keystore")
+            keyAlias "starbaba"
+            keyPassword "starbaba0727"
+            storePassword "starbaba0727"
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

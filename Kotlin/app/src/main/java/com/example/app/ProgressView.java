@@ -87,7 +87,7 @@ public class ProgressView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         maxValue = getMeasuredWidth() - 2 * INTERVAL_PADDING + UIUtil.dp2px(20);
         objectAnimator.setFloatValues(minvalue, maxValue);
-        objectAnimator.setDuration(20000);
+        objectAnimator.setDuration(10000);
         startObjectAnim();
     }
 

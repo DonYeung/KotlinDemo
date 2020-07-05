@@ -10,6 +10,13 @@ import com.example.app.R
 class MyFragment : Fragment() {
 
     private lateinit var myview: View
+    fun newInstance(): MyFragment{
+        val args = Bundle()
+
+        val fragment = MyFragment()
+        fragment.arguments = args
+        return fragment
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         myview = LayoutInflater.from(context).inflate(R.layout.activity_dianxin,container,false)
         return myview

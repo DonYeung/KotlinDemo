@@ -1,21 +1,31 @@
 package com.example.app
 
-import android.animation.*
-import android.app.Dialog
-import android.graphics.Point
+//import com.example.app.view.ProvinceEvaluator
+//import com.example.app.view.ProvinceEvaluator
+//import com.example.app.view.TextTypeEvaluator
+
+import android.animation.TypeEvaluator
 import android.graphics.PointF
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-//import com.example.app.view.ProvinceEvaluator
-//import com.example.app.view.ProvinceEvaluator
-import com.example.app.view.TextTypeEvaluator
-//import com.example.app.view.TextTypeEvaluator
-import kotlinx.android.synthetic.main.activity_customview.*
+import com.example.app.view.WaterMeterView
+
 
 class CustomViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_netedscroll_view)
+        setContentView(R.layout.activity_customview)
+
+        val waterMeterView = findViewById<WaterMeterView>(R.id.waterMeterView);
+        val list = mutableListOf<String >()
+        list.add("23.00")
+        list.add("32.00")
+        list.add("31.00")
+        list.add("28.00")
+        list.add("22.00")
+        list.add("23.00")
+
+        waterMeterView.setData(list)
 
         /* val animator = ObjectAnimator.ofFloat(view,"RADIUS",50f.px,150f.px)
          animator.duration = 2000
