@@ -61,7 +61,8 @@
         <service
             android:name=".servicedemo.MyIntentService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="Instantiatable" />
 
         <provider
             android:name=".contentProviderdemo.MyContentProvider"
@@ -78,7 +79,7 @@
                 android:resource="@xml/file_paths"/>
         </provider>
         -->
-        <activity android:name=".AmapActivity"
+        <activity android:name=".FirstActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

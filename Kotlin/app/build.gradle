@@ -10,11 +10,14 @@ android {
         }
     }
     defaultConfig {
-        applicationId "com.example.hencoder2"
+        applicationId "com.xmiles.luckweather"
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+        // 在android的defaultConfig中添加
+        manifestPlaceholders.put("APPLOG_SCHEME", "rangersapplog.aebe62a7556ebeab".toLowerCase())
 
         ndk {
             // 设置支持的SO库架构
@@ -44,7 +47,11 @@ android {
         jvmTarget = "1.8"
     }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':lesson')

@@ -8,6 +8,10 @@ android {
     defaultConfig {
         minSdkVersion 24
         targetSdkVersion 29
+
+        // 在android的defaultConfig中添加
+        manifestPlaceholders.put("APPLOG_SCHEME", "rangersapplog.aebe62a7556ebeab".toLowerCase())
+
     }
 
     kotlinOptions {
@@ -18,7 +22,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }*/
 }
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     //androidX
@@ -64,5 +72,12 @@ dependencies {
 
     api 'androidx.work:work-runtime:2.4.0-alpha03'
     api 'androidx.work:work-runtime-ktx:2.4.0-alpha03'
+    api files('libs\\RangersAppLog-All-cn-5.2.5.aar')
+    api files('libs\\dpsdk_2.1.0.2.aar')
 
+    //头条资讯 内容合作sdksdk
+//    api (name:'dpsdk_2.1.0.2',ext:'aar')
+    //内容合作sdk 日志上报
+//    api (name:'RangersAppLog-All-cn-5.2.5',ext:'aar')
+    api 'com.xmiles.adsdks:sceneadsdk-csj:1.1.0-releases'
 }

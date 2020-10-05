@@ -2,6 +2,7 @@ package com.example.core
 
 import android.app.Application
 import android.content.Context
+import com.example.core.utils.DPHolder
 
 class BaseApplication :Application(){
 
@@ -20,5 +21,10 @@ class BaseApplication :Application(){
     }
     override fun onCreate() {
         super.onCreate()
+        initDsdk()
+    }
+
+    fun initDsdk(){
+        DPHolder.getInstance().init(currentApplication)
     }
 }

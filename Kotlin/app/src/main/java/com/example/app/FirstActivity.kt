@@ -10,6 +10,8 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.app.R
 import com.example.app.adapter.FruitAdapter
 import com.example.app.adapter.FruitRecycleAdapter
@@ -44,8 +46,12 @@ class FirstActivity : AppCompatActivity() {
         }*/
 
 
-        val adapter = FruitRecycleAdapter(fruitList)
+        val adapter = FruitRecycleAdapter(fruitList,supportFragmentManager)
+        val newsLinearLayoutManager = LinearLayoutManager(this);
+        newsLinearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        recycleview.layoutManager =  newsLinearLayoutManager
         recycleview.adapter = adapter
+        adapter.notifyDataSetChanged()
 
     }
     private fun initFruit(){

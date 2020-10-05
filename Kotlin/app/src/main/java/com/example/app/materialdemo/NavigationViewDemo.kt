@@ -51,7 +51,7 @@ class NavigationViewDemo:AppCompatActivity() {
 
         }
 
-        val adapter  = FruitRecycleAdapter(fruitList)
+        val adapter  = FruitRecycleAdapter(fruitList,supportFragmentManager)
 //        val lineManager = LinearLayoutManager(this)
 //        lineManager.orientation = LinearLayoutManager.VERTICAL
         val gridLayoutManager = GridLayoutManager(this,2)

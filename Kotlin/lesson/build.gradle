@@ -9,7 +9,12 @@ android {
         targetSdkVersion 29
     }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':base')
 }
